@@ -3,3 +3,24 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  div
+    if user
+      div
+        a(href="/logout") #{user.username} をログアウト
+      div
+        a(href="/words/new") 言葉を創る
+      - var hasWord = words.length > 0
+      if hasWord
+        h3 あなたが作った言葉
+        table.table
+          tr
+            th サプライズ言葉
+            th 作った日付
+          each word in words
+            tr
+              td
+                a(href=`/words/${word.wordId}`) #{word.wordName}
+              td #{word.updatedAt}
+    else
+      div
+        a(href="/login") ログイン
