@@ -12,6 +12,10 @@ const Word = loader.database.define('words', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  partnerName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   createdBy: {
     type: Sequelize.INTEGER,
     allowNull: false

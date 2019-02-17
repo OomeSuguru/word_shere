@@ -15,6 +15,7 @@ router.post('/', authenticationEnsurer, (req, res, next) => {
   Word.create({
     wordId: wordId,
     wordName: req.body.wordName.slice(0, 255),
+    partnerName: req.body.partnerName,
     createdBy: req.user.id,
     updatedAt: updatedAt
   }).then((word) => {
